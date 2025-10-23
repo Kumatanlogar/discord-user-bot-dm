@@ -75,34 +75,33 @@ async def send_dm_with_bot(token: str, recipient_id: int, message: str):
 async def main():
     tokens = read_tokens_from_file("bot_tokens.txt")
     if not tokens:
-        console.print("[yellow][➜] No bot tokens found. A sample file was created.[/yellow]")
+        console.print("[yellow][➜ ] No bot tokens found. A sample file was created.[/yellow]")
         return
 
     clear_console()
-    console.print(r"""
- ██████████    ███                                          █████    █████  █████                               ██████████   ██████   ██████
+    # Fixed ASCII art - properly aligned
+    console.print(r"""██████████    ███                                          █████    █████  █████                               ██████████   ██████   ██████
 ░░███░░░░███  ░░░                                          ░░███    ░░███  ░░███                               ░░███░░░░███ ░░██████ ██████ 
  ░███   ░░███ ████   █████   ██████   ██████  ████████   ███████     ░███   ░███   █████   ██████  ████████     ░███   ░░███ ░███░█████░███ 
  ░███    ░███░░███  ███░░   ███░░███ ███░░███░░███░░███ ███░░███     ░███   ░███  ███░░   ███░░███░░███░░███    ░███    ░███ ░███░░███ ░███  
  ░███    ░███ ░███ ░░█████ ░███ ░░░ ░███ ░███ ░███ ░░░ ░███ ░███     ░███   ░███ ░░█████ ░███████  ░███ ░░░     ░███    ░███ ░███ ░░░  ░███ 
  ░███    ███  ░███  ░░░░███░███  ███░███ ░███ ░███     ░███ ░███     ░███   ░███  ░░░░███░███░░░   ░███         ░███    ███  ░███      ░███ 
  ██████████   █████ ██████ ░░██████ ░░██████  █████    ░░████████    ░░████████   ██████ ░░██████  █████        ██████████   █████     █████
-░░░░░░░░░░   ░░░░░ ░░░░░░   ░░░░░░   ░░░░░░  ░░░░░      ░░░░░░░░      ░░░░░░░░   ░░░░░░   ░░░░░░  ░░░░░        ░░░░░░░░░░   ░░░░░     ░░░░░ 
-""")
+░░░░░░░░░░   ░░░░░ ░░░░░░   ░░░░░░   ░░░░░░  ░░░░░      ░░░░░░░░      ░░░░░░░░   ░░░░░░   ░░░░░░  ░░░░░        ░░░░░░░░░░   ░░░░░     ░░░░░ """)
     console.print(f"[blue][TOKENS:[/blue] [bright_blue]{len(tokens)}][/bright_blue]")
 
-    recipient_input = console.input("[➜] Enter the User ID: ").strip()
+    recipient_input = console.input("[➜ ] Enter the User ID: ").strip()
     if not recipient_input.isdigit():
-        console.print("[red][➜] Invalid User ID. Exiting.[/red]")
+        console.print("[red][➜ ] Invalid User ID. Exiting.[/red]")
         return
     recipient_id = int(recipient_input)
 
-    message = console.input("[➜] Enter the message: ").strip()
+    message = console.input("[➜ ] Enter the message: ").strip()
     if not message:
-        console.print("[red][➜] No message entered. Exiting.[/red]")
+        console.print("[red][➜ ] No message entered. Exiting.[/red]")
         return
 
-    console.print("\n[➜] Starting sends...")
+    console.print("\n[➜ ] Starting sends...")
     results = []
     random.shuffle(tokens)
 
